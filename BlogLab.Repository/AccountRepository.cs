@@ -50,6 +50,7 @@ namespace BlogLab.Repository
             {
                 await connection.OpenAsync(cancellationToken);
 
+                // now we are fetching stored procedure
                 await connection.ExecuteAsync("Account_Insert",
                     new { Account = dataTable.AsTableValuedParameter("dbo.AccountType") }, commandType: CommandType.StoredProcedure);
             }
